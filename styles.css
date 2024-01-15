@@ -1,0 +1,11 @@
+body {
+  background-color: #000;
+  /* This sets the background color to black */
+  color: #00FF00;
+  font-family: "Courier New", monospace;
+  font-size: 16px;
+  padding: 20px;
+  margin: 0;
+  text-align: left;
+  line-height: 1.6;
+}
