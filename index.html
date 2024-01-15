@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Screen</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #00FF00;
+      font-family: "Courier New", monospace;
+      font-size: 25px;
+      padding: 20px;
+      margin: 0;
+      text-align: left;
+      line-height: 1.6;
+    }
+
+    input {
+      background-color: #000;
+      /* Set the background color of the input field to black */
+      color: #00FF00;
+      /* Set the text color of the input field to green */
+      border: 1px solid #00FF00;
+      /* Set a green border around the input field */
+      width: 200px;
+      /* Adjust the width as needed */
+    }
+  </style>
+</head>
+
+<body>
+  <div id="hackertyper"></div>
+  <script>
+    function simulateTyping(text) {
+      var index = 0;
+      var hackertyperElement = document.getElementById("hackertyper");
+      var interval = setInterval(function () {
+        if (index <= text.length) {
+          hackertyperElement.innerHTML = text.slice(0, index);
+          index++;
+        } else {
+          clearInterval(interval);
+          if (text === passwordText) {
+            setupPasswordInput();
+          }
+        }
+      }, 50);
+    }
+
+    function setupPasswordInput() {
+      var passwordInput = document.createElement("input");
+      passwordInput.type = "password";
+      passwordInput.style.backgroundColor = "#000";
+      passwordInput.style.color = "#00FF00";
+      passwordInput.style.border = "1px solid #00FF00";
+      passwordInput.style.width = "200px"; /* Adjust the width as needed */
+      passwordInput.onkeyup = checkPassword;
+      var hackertyperElement = document.getElementById("hackertyper");
+      hackertyperElement.appendChild(passwordInput);
+    }
+
+    function checkPassword() {
+      var input = document.querySelector("input[type='password']").value;
+      if (input === "qazplm1029") {
+        window.location.href = "db.html"; // Redirect to db.html on correct password
+      }
+    }
+
+    var passwordText = "Password: ";
+    var password = "yourpassword"; // Replace with your actual password
+
+    // Automatically make the page go full screen
+    document.body.requestFullscreen = document.body.requestFullscreen || document.body.webkitRequestFullscreen || document.body.mozRequestFullScreen || document.body.msRequestFullscreen;
+    document.body.requestFullscreen();
+
+    // Start simulating typing
+    simulateTyping(passwordText);
+  </script>
+</body>
+
+</html>
