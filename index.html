@@ -56,7 +56,11 @@
       passwordInput.style.color = "#00FF00";
       passwordInput.style.border = "1px solid #00FF00";
       passwordInput.style.width = "200px";
-      passwordInput.onkeyup = checkPassword;
+      passwordInput.onkeyup = function (event) {
+        if (event.key === "Enter") {
+          checkPassword();
+        }
+      };
       var hackertyperElement = document.getElementById("hackertyper");
       hackertyperElement.appendChild(passwordInput);
     }
@@ -65,7 +69,7 @@
       var input = document.querySelector("input[type='password']").value;
       if (input === "qazplm1029") {
         window.location.href = "db.html"; // Redirect to db.html on correct password
-      } else if (input.length === "qazplm1029".length) {
+      } else {
         showErrorMessage("System failure: Self-destruct sequence initiated!");
       }
     }
