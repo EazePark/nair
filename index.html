@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sys 1102</title>
+  <title>Password Screen</title>
   <style>
     body {
       background-color: #000;
@@ -65,7 +65,7 @@
       var input = document.querySelector("input[type='password']").value;
       if (input === "qazplm1029") {
         window.location.href = "db.html"; // Redirect to db.html on correct password
-      } else {
+      } else if (input.length === "qazplm1029".length) {
         showErrorMessage("System failure: Self-destruct sequence initiated!");
       }
     }
