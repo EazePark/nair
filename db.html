@@ -51,7 +51,7 @@
     }
 
     function setupPlatformSelection() {
-      var platformText = 'Select a platform (f for Facebook, i for Instagram, e for Entrar): ';
+      var platformText = 'Enter Code to Access Secure System:';
       var hackertyperElement = document.getElementById("hackertyper");
       hackertyperElement.innerHTML += `<br><br>${platformText}<input type="text" id="platformInput">`;
       document.getElementById("platformInput").addEventListener("keydown", function (event) {
@@ -63,20 +63,15 @@
 
     function checkInput() {
       var input = document.getElementById("platformInput").value.toLowerCase();
-      if (input === 'i' || input === 'f' || input === 'e') {
+      if (input === '80085') {
         var platformName = '';
-        if (input === 'i') {
-          platformName = 'Instagram';
-        } else if (input === 'f') {
-          platformName = 'Facebook';
-        } else if (input === 'e') {
-          platformName = 'Entrar';
-        }
+        if (input === '80085') {
+          platformName = 'NSA';
 
         var text = `
-          Welcome to ${platformName} Password Bruteforce System.
+          Welcome to ${platformName} Secure System.
           Initializing...
-          <br><br>Enter the ID to Bruteforce: <input type="text" id="bruteforceInput"><button onclick="startBruteforce()" style="background-color: #000; color: #00FF00;">Start Bruteforce</button>
+          <br><br>Enter Agent ID: <input type="text" id="bruteforceInput"><button onclick="startBruteforce()" style="background-color: #000; color: #00FF00;">Start Bruteforce</button>
         `;
         simulateTyping(text);
       }
@@ -92,15 +87,15 @@
       var index = 1;
       var interval = setInterval(function () {
         var text = `
-          Bruteforcing ID: ${id}
-          Progress: ${index}%
+          Connecting: ${id}
+          Connection Progress: ${index}%
         `;
         simulateTyping(text);
         index++;
 
         if (index === 67) {
           clearInterval(interval);
-          window.open("https://geekprank.shi4home.com/hacker/", "_blank");
+          window.location.href = "https://geekprank.shi4home.com/hacker/";
         }
 
         if (index > 100) {
@@ -109,7 +104,7 @@
       }, 50);
     }
 
-    var mainframeText = "Access Granted ......          Welcome Mr.Aadithya S Nair.                 Succesfully Connected to the Mainframe.....                    Initializing SQLMap and other Bruteforce Packages...";
+    var mainframeText = "Access Granted ......          Welcome Agent:Aadithya S Nair.                 Succesfully Connected to the Mainframe.....                    Initializing SQLMap and other Bruteforce Packages...";
     simulateTyping(mainframeText);
   </script>
 </body>
