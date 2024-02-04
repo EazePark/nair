@@ -64,10 +64,7 @@
     function checkInput() {
       var input = document.getElementById("platformInput").value.toLowerCase();
       if (input === '80085') {
-        var platformName = '';
-        if (input === '80085') {
-          platformName = 'NSA';
-
+        var platformName = 'NSA'; // <-- Added missing curly brace here
         var text = `
           Welcome to ${platformName} Secure System.
           Initializing...
