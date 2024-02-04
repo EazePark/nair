@@ -19,13 +19,13 @@
 
     input {
       background-color: #000;
-      /* Set the background color of the input field to black */
       color: #00FF00;
-      /* Set the text color of the input field to green */
       border: 1px solid #00FF00;
-      /* Set a green border around the input field */
       width: 200px;
-      /* Adjust the width as needed */
+    }
+
+    .error-message {
+      color: #FF0000;
     }
   </style>
 </head>
@@ -55,7 +55,7 @@
       passwordInput.style.backgroundColor = "#000";
       passwordInput.style.color = "#00FF00";
       passwordInput.style.border = "1px solid #00FF00";
-      passwordInput.style.width = "200px"; /* Adjust the width as needed */
+      passwordInput.style.width = "200px";
       passwordInput.onkeyup = checkPassword;
       var hackertyperElement = document.getElementById("hackertyper");
       hackertyperElement.appendChild(passwordInput);
@@ -65,17 +65,25 @@
       var input = document.querySelector("input[type='password']").value;
       if (input === "qazplm1029") {
         window.location.href = "db.html"; // Redirect to db.html on correct password
+      } else {
+        showErrorMessage("System failure: Self-destruct sequence initiated!");
       }
+    }
+
+    function showErrorMessage(message) {
+      var errorMessageElement = document.createElement("div");
+      errorMessageElement.className = "error-message";
+      errorMessageElement.innerHTML = message;
+      var hackertyperElement = document.getElementById("hackertyper");
+      hackertyperElement.appendChild(errorMessageElement);
     }
 
     var passwordText = "Password: ";
     var password = "yourpassword"; // Replace with your actual password
 
-    // Automatically make the page go full screen
     document.body.requestFullscreen = document.body.requestFullscreen || document.body.webkitRequestFullscreen || document.body.mozRequestFullScreen || document.body.msRequestFullscreen;
     document.body.requestFullscreen();
 
-    // Start simulating typing
     simulateTyping(passwordText);
   </script>
 </body>
